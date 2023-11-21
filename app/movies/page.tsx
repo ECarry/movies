@@ -1,3 +1,4 @@
+import { getPopularMovies, getTopRatedMovies } from "@/lib/data";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -19,29 +20,19 @@ interface Movie {
 }
 
 const MoviesPage = async () => {
-  const apiKey = process.env.NEXT_TMDB_API_KEY
-  const apiUrl = 'https://api.themoviedb.org/3/movie/popular';
-
-  // 构建请求URL
-  const requestUrl = `${apiUrl}?api_key=${apiKey}&language=zh`;
-  const data = await fetch(requestUrl, {
-    method: 'GET'
-  })
-
-  const movies = await data.json()
-
+  const movies = await getTopRatedMovies()
+  
   if (!movies) {
     return null
   }
-
-  //console.log('===========>', movies);
   
   return (
-    <div className="grid grid-cols-4 gap-4 container mx-auto">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 container mx-auto py-4">
       {movies.results.map((movie: Movie) => (
         <Link
+          scroll={false}
           key={movie.id}
-          href=''
+          href={`/movies/${movie.id}`}
         >
         <Image 
           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
