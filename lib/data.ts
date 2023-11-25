@@ -1,10 +1,12 @@
+'use server'
+
 const apiKey = process.env.NEXT_TMDB_API_KEY
 const language = 'zh'
 
-export async function getPopularMovies() {
+export async function getPopularMovies(page: number) {
   const apiUrl = 'https://api.themoviedb.org/3/movie/popular';
 
-  const requestUrl = `${apiUrl}?api_key=${apiKey}&language=${language}`;
+  const requestUrl = `${apiUrl}?api_key=${apiKey}&language=${language}&page=${page}`;
   try {
     const res = await fetch(requestUrl, {
       method: 'GET'
@@ -19,10 +21,10 @@ export async function getPopularMovies() {
   }
 }
 
-export async function getTopRatedMovies() {
+export async function getTopRatedMovies(page: number) {
   const apiUrl = 'https://api.themoviedb.org/3/movie/top_rated';
 
-  const requestUrl = `${apiUrl}?api_key=${apiKey}&language=${language}`;
+  const requestUrl = `${apiUrl}?api_key=${apiKey}&language=${language}&page=${page}`;
   try {
     const res = await fetch(requestUrl, {
       method: 'GET'
