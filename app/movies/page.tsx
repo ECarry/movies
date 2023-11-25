@@ -1,6 +1,5 @@
-import AnimeCard from "@/components/AnimeCard";
+import { getPopularMovies } from "@/actions/action";
 import LoadMore from "@/components/LoadMore";
-import { getPopularMovies, getTopRatedMovies } from "@/lib/data";
 
 interface Movie {
   adult: boolean;
@@ -20,7 +19,7 @@ interface Movie {
 }
 
 const MoviesPage = async () => {
-  const movies = await getTopRatedMovies(1)
+  const movies = await getPopularMovies(1)
   
   if (!movies) {
     return null
@@ -29,13 +28,7 @@ const MoviesPage = async () => {
   return (
     <>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 container mx-auto py-4">
-        {movies.results.map((movie: Movie) => (
-          <AnimeCard
-            key={movie.id}
-            id={movie.id}
-            src={movie.poster_path}
-          />
-        ))}
+        {movies}
       </div>
       <LoadMore />
     </>
