@@ -10,7 +10,7 @@ export default async function Home() {
     <main className="mt-[72px] py-4 flex flex-col gap-4">
       <Slider data={popularMovies.results} />
 
-      <div className="flex items-center w-full gap-2 md:gap-5 px-16 justify-between">
+      <div className="flex items-center w-full gap-2 md:gap-5 lg:gap-6 xl:gap-7 px-16 justify-between">
         <ProductionCard title="Disney" />
         <ProductionCard title="Pixar" />
         <ProductionCard title="Marvel" />

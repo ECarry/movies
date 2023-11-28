@@ -61,6 +61,7 @@ const Slider = ({
               alt="backdrop"
               fill
               className="w-full h-full object-cover absolute rounded-md object-left-top brightness-75"
+              sizes="calc(100vw - 128px)"
             />
             <div
               className="

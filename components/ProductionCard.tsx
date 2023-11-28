@@ -39,8 +39,8 @@ const ProductionCard = ({
   return (
     <>
       <div className='hover:scale-110 transition-all duration-300 ease-in-out relative w-full h-auto rounded-lg overflow-hidden cursor-pointer'>
-        <Image src={typeMap[title].image} alt='' fill className='w-full h-full object-cover' />
-        <video src={typeMap[title].video} autoPlay loop className='w-full h-full'></video>
+        <Image src={typeMap[title].image} alt='' fill className='w-full h-full object-cover' sizes="(min-width: 780px) calc(19.73vw - 40px), calc(20vw - 32px)" />
+        <video src={typeMap[title].video} autoPlay loop className='w-full h-full' />
         <div 
           className='
             after:rounded-lg
