@@ -47,8 +47,8 @@ const Header = () => {
     <header className='fixed top-0 w-full z-10 text-white flex items-center h-[72px] px-6 justify-between'>
       <ul className='items-center gap-8 hidden md:flex'>
         <span className='mr-6'><Logo /></span>
-        {routes.map(route => (
-          <span key={route.link}>
+        {routes.map((route, index) => (
+          <span key={index}>
             <NavItem route={route} />
           </span>
         ))}
@@ -56,9 +56,9 @@ const Header = () => {
       </ul>
 
       <ul className='flex items-center gap-8 md:hidden'>
-        <span className='mr-6'><Logo /></span>
+        <span className='mr-2'><Logo /></span>
         {routes.map((route, index) => index<3 && (
-          <span key={route.link}>
+          <span key={index}>
             <NavItem route={route} />
           </span>
         ))}
