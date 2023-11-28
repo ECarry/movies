@@ -1,11 +1,13 @@
-import Link from "next/link";
+import Header from "@/components/Header";
+import Slider from "@/components/Slider";
+import { getPopularMovies } from "@/lib/data";
 
-export default function Home() {
+export default async function Home() {
+  const popularMovies = await getPopularMovies(1)
+
   return (
-    <main className="flex justify-center items-center h-screen">
-      <Link href={'/movies'}>
-        <span className="text-3xl">Movies</span>
-      </Link>
+    <main className="mt-[72px] py-4">
+      <Slider data={popularMovies.results} />
     </main>
   )
 }

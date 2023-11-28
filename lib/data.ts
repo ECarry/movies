@@ -1,5 +1,3 @@
-'use server'
-
 const apiKey = process.env.NEXT_TMDB_API_KEY
 const language = 'zh'
 
