@@ -44,7 +44,7 @@ const routes = [
 
 const Header = () => {
   return (
-    <header className='text-white flex items-center h-[72px] px-6 justify-between'>
+    <header className='fixed top-0 w-full z-10 text-white flex items-center h-[72px] px-6 justify-between'>
       <ul className='items-center gap-8 hidden md:flex'>
         <span className='mr-6'><Logo /></span>
         {routes.map(route => (
