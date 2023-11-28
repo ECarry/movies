@@ -1,7 +1,7 @@
 'use client'
 
 import Image from "next/image"
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Movie } from "@/types"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
@@ -10,17 +10,29 @@ interface SliderProps {
 }
 
 const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/original'
-// TODO: 
-const screenWidth = window.innerWidth
 
 const Slider = ({
   data
 }: SliderProps) => {
   const ref = useRef<HTMLDivElement | null>(null)
+  const [screenWidth, setScreenWidth] = useState(0);
 
   useEffect(() => {
+    // 在挂载时获取窗口宽度
+    setScreenWidth(window.innerWidth);
 
-  }, [screenWidth])
+    // 添加事件监听器，监听窗口大小变化
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // 清除监听器
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []); // 依赖项为空数组，确保只在挂载时执行一次
 
   const sliderLeft = (e: HTMLDivElement) => {
     e.scrollLeft-=screenWidth-112
