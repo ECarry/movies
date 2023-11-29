@@ -54,3 +54,39 @@ export async function getMovieInfoById(id: string) {
     
   }
 }
+
+export async function getNowPlayingMovies(page: number) {
+  const apiUrl = 'https://api.themoviedb.org/3/movie/now_playing';
+
+  const requestUrl = `${apiUrl}?api_key=${apiKey}&language=${language}&page=${page}`;
+  try {
+    const res = await fetch(requestUrl, {
+      method: 'GET'
+    })
+  
+    const data = await res.json()
+
+    return data
+  } catch (error) {
+    console.log(error);
+    
+  }
+}
+
+export async function getUpcomingMovies(page: number) {
+  const apiUrl = 'https://api.themoviedb.org/3/movie/upcoming';
+
+  const requestUrl = `${apiUrl}?api_key=${apiKey}&language=${language}&page=${page}`;
+  try {
+    const res = await fetch(requestUrl, {
+      method: 'GET'
+    })
+  
+    const data = await res.json()
+
+    return data
+  } catch (error) {
+    console.log(error);
+    
+  }
+}

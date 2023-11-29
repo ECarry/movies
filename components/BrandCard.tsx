@@ -7,7 +7,7 @@ import StarWars from '@/public/star-wars.png'
 import NationalGeographic from '@/public/national-geographic.png'
 import Star from '@/public/star.png'
 
-interface ProductionCardProps {
+interface BrandCardProps {
   title: 'Disney' | 'Pixar' | 'Marvel' | 'StarWars' | 'NationalGeographic' | 'Star';
 }
 
@@ -38,9 +38,9 @@ const typeMap: any = {
   },
 }
 
-const ProductionCard = ({
+const BrandCard = ({
   title
-}: ProductionCardProps) => {
+}: BrandCardProps) => {
   return (
     <>
       <div 
@@ -72,4 +72,4 @@ const ProductionCard = ({
   )
 }
 
-export default ProductionCard
+export default BrandCard
