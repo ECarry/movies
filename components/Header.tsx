@@ -44,7 +44,7 @@ const routes = [
 
 const Header = () => {
   return (
-    <header className='fixed top-0 w-full z-10 text-white flex items-center h-[72px] px-6 justify-between'>
+    <header className='fixed top-0 w-full z-10 text-white flex items-center h-[72px] px-6 justify-between backdrop-blur'>
       <ul className='items-center gap-8 hidden md:flex'>
         <span className='mr-6'><Logo /></span>
         {routes.map((route, index) => (
@@ -72,6 +72,7 @@ const Header = () => {
           height={48}
           src='/avatar.png'
           alt='avatar'
+          className='w-[32px] h-[32px] md:w-[48px] md:h-[48px]'
         />
       </div>
     </header>
