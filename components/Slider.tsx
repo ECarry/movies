@@ -35,11 +35,11 @@ const Slider = ({
   }, []); // 依赖项为空数组，确保只在挂载时执行一次
 
   const sliderLeft = (e: HTMLDivElement) => {
-    e.scrollLeft-=screenWidth-112
+    e.scrollLeft-=screenWidth-128
   }
 
   const sliderRight = (e: HTMLDivElement) => {
-    e.scrollLeft+=screenWidth-112
+    e.scrollLeft+=screenWidth-128
   }
 
   return (

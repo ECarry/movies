@@ -42,15 +42,15 @@ export default async function Home() {
         </div>
       </div>
 
-      <div className="w-full px-16">
+      <div className="w-full px-[52px]">
         <SliderList title="熱門電影" data={popularMovies.results} />
       </div>
 
-      <div className="w-full px-16">
+      <div className="w-full px-[52px]">
         <SliderList title="現正熱映" data={nowPlayingMovies.results} />
       </div>
 
-      <div className="w-full px-16">
+      <div className="w-full px-[52px]">
         <SliderList title="即將上映" data={upcomingMovies.results} />
       </div>
       
