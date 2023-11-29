@@ -13,10 +13,10 @@ const SliderList = ({
   return (
     <div className="flex flex-col gap-2">
       <div>
-        <h1 className="text-white">{title}</h1>
+        <h1 className="text-white px-3">{title}</h1>
       </div>
 
-      <div className="flex overflow-x-auto gap-4 scrollbar-hide scroll-smooth">
+      <div className="flex overflow-x-auto gap-4 scrollbar-hide scroll-smooth py-5 px-3">
         {data.map((item, index) => (
           <PostCard key={index} data={item} />
         ))}
