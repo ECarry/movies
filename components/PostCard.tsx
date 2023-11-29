@@ -18,7 +18,9 @@ const PostCard = ({
         'boxShadow': 'rgba(0, 0, 0, 0.69) 0px 26px 30px -10px, rgba(0, 0, 0, 0.73) 0px 16px 10px -10px'
       }}
       className="flex-none 
-      w-[200px] h-[300px] 
+      w-[200px] h-[300px]
+      lg:w-[400px]
+      lg:h-[600px]
       rounded-md 
       hover:scale-105 
       hover:border-[3px]
