@@ -16,6 +16,7 @@ export default async function Home() {
         <ProductionCard title="Marvel" />
         <ProductionCard title="StarWars" />
         <ProductionCard title="NationalGeographic" />
+        <ProductionCard title="Star" />
       </div>
     </main>
   )

@@ -5,9 +5,10 @@ import Pixar from '@/public/pixar.png'
 import Marvel from '@/public/marvel.png'
 import StarWars from '@/public/star-wars.png'
 import NationalGeographic from '@/public/national-geographic.png'
+import Star from '@/public/star.png'
 
 interface ProductionCardProps {
-  title: 'Disney' | 'Pixar' | 'Marvel' | 'StarWars' | 'NationalGeographic';
+  title: 'Disney' | 'Pixar' | 'Marvel' | 'StarWars' | 'NationalGeographic' | 'Star';
 }
 
 const typeMap: any = {
@@ -31,6 +32,10 @@ const typeMap: any = {
     image: NationalGeographic,
     video: '/national-geographic.mp4'
   },
+  'Star': {
+    image: Star,
+    video: '/star.mp4'
+  },
 }
 
 const ProductionCard = ({
@@ -38,9 +43,19 @@ const ProductionCard = ({
 }: ProductionCardProps) => {
   return (
     <>
-      <div className='hover:scale-110 transition-all duration-300 ease-in-out relative w-full h-auto rounded-lg overflow-hidden cursor-pointer'>
-        <Image src={typeMap[title].image} alt='' fill className='w-full h-full object-cover' sizes="(min-width: 780px) calc(19.73vw - 40px), calc(20vw - 32px)" />
-        <video src={typeMap[title].video} autoPlay loop className='w-full h-full' />
+      <div 
+        style={{
+          'backgroundImage': 'linear-gradient(rgb(58, 60, 74), rgb(36, 38, 50))',
+          'boxShadow': 'rgba(0, 0, 0, 0.69) 0px 26px 30px -10px, rgba(0, 0, 0, 0.73) 0px 16px 10px -10px'
+        }}
+        className='hover:scale-110 transition-all duration-300 ease-in-out relative w-full h-auto rounded-lg overflow-hidden cursor-pointer'>
+        <Image 
+          src={typeMap[title].image}
+          alt='' 
+          className='w-full h-full object-cover'
+          sizes="(min-width: 780px) calc(19.73vw - 40px), calc(20vw - 32px)"
+        />
+        <video src={typeMap[title].video} autoPlay loop playsInline className='absolute w-full h-full inset-0 -z-10' />
         <div 
           className='
             after:rounded-lg
