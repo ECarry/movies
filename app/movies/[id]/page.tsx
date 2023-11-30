@@ -1,6 +1,11 @@
 import { getMovieInfoById } from "@/lib/data"
 import Image from "next/image"
 
+import Level12 from '@/public/12.png'
+import Level18 from '@/public/18.png'
+import CC from '@/public/cc.png'
+import Audio from '@/public/audio.png'
+
 interface MovieIdPageProps {
   params: {
     id: string
@@ -31,8 +36,9 @@ const MovieIdPage = async ({
         <Image 
           src={IMAGE_BASE_URL+data.backdrop_path}
           alt="backdrop"
-          width={1920}
-          height={1080}
+          width={1280}
+          height={720}
+          priority
           className="z-0 object-cover w-full h-full"
         />
         <div
@@ -55,8 +61,14 @@ const MovieIdPage = async ({
         
         {/* GENRES  */}
         <div className="flex flex-col gap-1">
-          <div className="text-white text-sm font-light">
-            <span>{data.release_date.slice(0,4)} • {data.runtime}分钟</span>
+
+          <div>
+            <div className="flex items-center gap-2">
+              <Image src={data.adult === false ? Level12 : Level18} alt="12+" height={20} className=""/>
+              <Image src={Audio} alt="ad" height={20} className=""/>
+              <Image src={CC} alt="cc" height={20} className=""/>
+              <span className="text-sm text-white font-light">{data.release_date.slice(0,4)} • {data.runtime}分钟</span>
+            </div>
           </div>
           <div className="flex gap-2 text-sm font-light">
             {data.genres.map((genre: Genre) => (
@@ -73,7 +85,6 @@ const MovieIdPage = async ({
         </div>
       </div>
       
-
     </main>
   )
 }
