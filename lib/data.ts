@@ -1,3 +1,5 @@
+import 'server-only'
+
 const apiKey = process.env.NEXT_TMDB_API_KEY
 const language = 'zh'
 
