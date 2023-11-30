@@ -5,6 +5,7 @@ import Level12 from '@/public/12.png'
 import Level18 from '@/public/18.png'
 import CC from '@/public/cc.png'
 import Audio from '@/public/audio.png'
+import { Plus } from "lucide-react"
 
 interface MovieIdPageProps {
   params: {
@@ -76,6 +77,28 @@ const MovieIdPage = async ({
                 {genre.name}
               </p>
             ))}
+          </div>
+        </div>
+
+        {/* PLAY BUTTON  */}
+        <div>
+          <div 
+            className="
+              w-10 
+              h-10 
+              rounded-full 
+              border-2 
+              flex 
+              items-center 
+              justify-center 
+              cursor-pointer
+              bg-black
+              transition-all
+              duration-150
+              ease-in-out
+              hover:bg-white
+            ">
+            <Plus className="text-white hover:text-black" />
           </div>
         </div>
 
