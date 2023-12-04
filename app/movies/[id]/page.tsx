@@ -97,8 +97,9 @@ const MovieIdPage = async ({
               duration-150
               ease-in-out
               hover:bg-white
+              group
             ">
-            <Plus className="text-white hover:text-black" />
+            <Plus className="text-white group-hover:text-black" />
           </div>
         </div>
 

@@ -13,7 +13,8 @@ const PostCard = ({
 }: PostCardProps) => {
   return (
     <Link 
-      href={`/movies/${data.id}`}  
+      href={`/movies/${data.id}`}
+      prefetch={false}
       style={{
         'boxShadow': 'rgba(0, 0, 0, 0.69) 0px 26px 30px -10px, rgba(0, 0, 0, 0.73) 0px 16px 10px -10px'
       }}
