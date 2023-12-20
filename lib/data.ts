@@ -1,3 +1,4 @@
+import { SearchResults } from '@/types';
 import 'server-only'
 
 const apiKey = process.env.NEXT_TMDB_API_KEY
@@ -91,4 +92,32 @@ export async function getUpcomingMovies(page: number) {
     console.log(error);
     
   }
+}
+
+async function fetchFromTMDB(url: URL, cacheTime?: number) {
+  url.searchParams.set('language', 'en-US')
+  url.searchParams.set('page', '1')
+  url.searchParams.set('sort_by', 'popularity.desc')
+
+  const options: RequestInit = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json'
+    },
+    next: {
+      revalidate: cacheTime || 60 * 60 * 24 // 24 hours default
+    }
+  }
+
+  const res = await fetch(url.toString(), options)
+  const data = (await res.json()) as SearchResults
+
+  return data
+}
+
+export async function getUpcomingMoviesDemo() {
+  const url = new URL('https://api.themoviedb.org/3/movie/upcoming')
+  const data = await fetchFromTMDB(url)
+
+  return data.results
 }
